@@ -1,0 +1,255 @@
+Database Creation Code:
+CREATE TABLE Admins (
+ A_ID NUMBER primary key,
+ A_Name varchar(255),
+ A_SSN varchar(50),
+ A_Password varchar(255),
+ A_birthDate date
+);
+create table COMPANIES (
+ C_ID NUMBER primary key,
+ C_Name varchar(255) NOT NULL,
+ C_Address varchar(255)
+);
+create table HOSPITALS (
+ H_ID NUMBER primary key,
+ H_Name varchar(255) NOT NULL,
+ H_Address varchar(255),
+ H_Phone varchar(255)
+);
+create table CLINICS (
+ C_ID NUMBER primary key,
+ C_Name varchar(255) NOT NULL,
+ Dr_Name varchar(255) NOT NULL,
+ C_SPECIALIZATION varchar(255) not null,
+ C_Phone varchar(255)
+ 
+);
+create table MEDICAL_HISTORY (
+ M_ID number primary key,
+ Emp_ID number not null,
+ Comp_ID number not null,
+ Clinic_ID number not null,
+ M_Date date
+);
+create table EMPLOYERS (
+ E_ID number primary key,
+ E_Name varchar(255) not null,
+ E_BirthDate date,
+ Comp_ID number,
+ E_SSN varchar(50),
+ E_Password varchar(255),
+ E_Phone varchar(50)
+);
+
+
+Code Insert Admin Table
+INSERT INTO Admins (A_ID, A_Name, A_SSN, A_Password, A_birthDate)
+VALUES (1, 'John Smith', '123-45-6789', 'password123', TO_DATE('1990-01-01', 'YYYY-MM-DD'));
+INSERT INTO Admins (A_ID, A_Name, A_SSN, A_Password, A_birthDate)
+VALUES (2, 'Mary Johnson', '987-65-4321', 'letmein', TO_DATE('1985-03-15', 'YYYY-MM-DD'));
+INSERT INTO Admins (A_ID, A_Name, A_SSN, A_Password, A_birthDate)
+VALUES (3, 'Robert Lee', '456-78-9123', 'qwerty', TO_DATE('1978-06-20', 'YYYY-MM-DD'));
+INSERT INTO Admins (A_ID, A_Name, A_SSN, A_Password, A_birthDate)
+VALUES (4, 'Jenny Kim', '321-54-9876', 'admin123', TO_DATE('1995-11-10', 'YYYY-MM-DD'));
+INSERT INTO Admins (A_ID, A_Name, A_SSN, A_Password, A_birthDate)
+VALUES (5, 'David Lee', '111-22-3333', 'password456', TO_DATE('1987-02-28', 'YYYY-MM-DD'));
+INSERT INTO Admins (A_ID, A_Name, A_SSN, A_Password, A_birthDate)
+VALUES (6, 'Sarah Park', '444-55-6666', 'letmein123', TO_DATE('1992-09-05', 'YYYY-MM-DD'));
+INSERT INTO Admins (A_ID, A_Name, A_SSN, A_Password, A_birthDate)
+VALUES (7, 'Mike Brown', '789-01-2345', '123456', TO_DATE('1976-12-25', 'YYYY-MM-DD'));
+INSERT INTO Admins (A_ID, A_Name, A_SSN, A_Password, A_birthDate)
+VALUES (8, 'Karen Wong', '567-89-0123', 'pass123', TO_DATE('1998-04-02', 'YYYY-MM-DD'));
+INSERT INTO Admins (A_ID, A_Name, A_SSN, A_Password, A_birthDate)
+VALUES (9, 'Tommy Nguyen', '432-10-9876', 'admin1234', TO_DATE('1983-08-18', 'YYYY-MM-DD'));
+INSERT INTO Admins (A_ID, A_Name, A_SSN, A_Password, A_birthDate)
+VALUES (10, 'Anna Kim', '333-22-1111', 'qwerty123', TO_DATE('1991-07-12', 'YYYY-MM-DD'));
+INSERT INTO Admins (A_ID, A_Name, A_SSN, A_Password, A_birthDate)
+VALUES (11, 'Peter Lee', '789-12-3456', 'password789', TO_DATE('1993-05-20', 'YYYY-MM-DD'));
+INSERT INTO Admins (A_ID, A_Name, A_SSN, A_Password, A_birthDate)
+VALUES (12, 'Linda Johnson', '654-32-1098', 'letmein456', TO_DATE('1980-08-08', 'YYYY-MM-DD'));
+INSERT INTO Admins (A_ID, A_Name, A_SSN, A_Password, A_birthDate)
+VALUES (13, 'Adam Smith', '321-98-7654', 'admin456', TO_DATE('1996-11-25', 'YYYY-MM-DD'));
+INSERT INTO Admins (A_ID, A_Name, A_SSN, A_Password, A_birthDate)
+VALUES (14, 'Olivia Brown', '987-65-4321', 'password1234', TO_DATE('1999-02-17', 'YYYY-MM-DD'));
+INSERT INTO Admins (A_ID, A_Name, A_SSN, A_Password, A_birthDate)
+VALUES (15, 'Erica Kim', '246-80-1357', 'letmein789', TO_DATE('1982-07-11', 'YYYY-MM-DD'));
+INSERT INTO Admins (A_ID, A_Name, A_SSN, A_Password, A_birthDate)
+VALUES (16, 'James Lee', '159-26-4837', 'admin789', TO_DATE('1990-09-30', 'YYYY-MM-DD'));
+INSERT INTO Admins (A_ID, A_Name, A_SSN, A_Password, A_birthDate)
+VALUES (17, 'Sophia Johnson', '468-23-5791', 'password5678', TO_DATE('1987-03-05', 'YYYY-MM-DD'));
+INSERT INTO Admins (A_ID, A_Name, A_SSN, A_Password, A_birthDate)
+VALUES (18, 'Edward Lee', '135-79-2468', 'letmein1234', TO_DATE('1979-11-02', 'YYYY-MM-DD'));
+INSERT INTO Admins (A_ID, A_Name, A_SSN, A_Password, A_birthDate)
+VALUES (19, 'Emily Kim', '987-65-4321', 'admin5678', TO_DATE('1993-08-15', 'YYYY-MM-DD'));
+INSERT INTO Admins (A_ID, A_Name, A_SSN, A_Password, A_birthDate)
+VALUES (20, 'Ryan Brown', '654-32-1098', 'password999', TO_DATE('1985-12-07', 'YYYY-MM-DD'));
+
+Code Insert Employes Table
+INSERT INTO EMPLOYERS (E_ID, E_Name, E_BirthDate, Comp_ID, E_SSN, E_Password, E_Phone)
+VALUES (1, 'John Doe', '1990-01-01', 1, '123-45-6789', 'password1', '123-456-7890');
+INSERT INTO EMPLOYERS (E_ID, E_Name, E_BirthDate, Comp_ID, E_SSN, E_Password, E_Phone)
+VALUES (2, 'Jane Doe', '1995-02-14', 1, '987-65-4321', 'password2', '555-555-5555');
+INSERT INTO EMPLOYERS (E_ID, E_Name, E_BirthDate, Comp_ID, E_SSN, E_Password, E_Phone)
+VALUES (3, 'Bob Smith', '1988-05-20', 2, '111-11-1111', 'password3', '111-222-3333');
+INSERT INTO EMPLOYERS (E_ID, E_Name, E_BirthDate, Comp_ID, E_SSN, E_Password, E_Phone)
+VALUES (4, 'Sally Johnson', '1992-12-31', 3, '222-22-2222', 'password4', '444-444-4444');
+INSERT INTO EMPLOYERS (E_ID, E_Name, E_BirthDate, Comp_ID, E_SSN, E_Password, E_Phone)
+VALUES (5, 'Tom Jones', '1999-06-15', 3, '333-33-3333', 'password5', '777-777-7777');
+INSERT INTO EMPLOYERS (E_ID, E_Name, E_BirthDate, Comp_ID, E_SSN, E_Password, E_Phone)
+VALUES (6, 'Lisa Smith', '1985-03-12', 2, '444-44-4444', 'password6', '888-888-8888');
+INSERT INTO EMPLOYERS (E_ID, E_Name, E_BirthDate, Comp_ID, E_SSN, E_Password, E_Phone)
+VALUES (7, 'Mike Johnson', '1993-11-25', 3, '555-55-5555', 'password7', '999-999-9999');
+INSERT INTO EMPLOYERS (E_ID, E_Name, E_BirthDate, Comp_ID, E_SSN, E_Password, E_Phone)
+VALUES (8, 'Amy Lee', '1998-04-02', 1, '666-66-6666', 'password8', '555-444-3333');
+INSERT INTO EMPLOYERS (E_ID, E_Name, E_BirthDate, Comp_ID, E_SSN, E_Password, E_Phone)
+VALUES (9, 'David Brown', '1991-09-10', 2, '777-77-7777', 'password9', '222-333-4444');
+INSERT INTO EMPLOYERS (E_ID, E_Name, E_BirthDate, Comp_ID, E_SSN, E_Password, E_Phone)
+VALUES (10, 'Mary Smith', '1994-07-22', 1, '888-88-8888', 'password10', '111-222-3333');
+INSERT INTO EMPLOYERS (E_ID, E_Name, E_BirthDate, Comp_ID, E_SSN, E_Password, E_Phone)
+VALUES (11, 'Chris Jones', '1997-02-05
+
+
+Code Insert Companies Table
+INSERT INTO COMPANIES (C_ID, C_Name, C_Address)
+VALUES (1, 'Acme Inc', '123 Main St');
+INSERT INTO COMPANIES (C_ID, C_Name, C_Address)
+VALUES (2, 'Widget Corp', '456 Maple Ave');
+INSERT INTO COMPANIES (C_ID, C_Name, C_Address)
+VALUES (3, 'Globex LLC', '789 Oak St');
+INSERT INTO COMPANIES (C_ID, C_Name, C_Address)
+VALUES (4, 'Initech', '555 Broad St');
+INSERT INTO COMPANIES (C_ID, C_Name, C_Address)
+VALUES (5, 'Umbrella Corp', '321 Elm St');
+INSERT INTO COMPANIES (C_ID, C_Name, C_Address)
+VALUES (6, 'Stark Industries', '777 5th Ave');
+INSERT INTO COMPANIES (C_ID, C_Name, C_Address)
+VALUES (7, 'Wayne Enterprises', '123 Gotham Ave');
+INSERT INTO COMPANIES (C_ID, C_Name, C_Address)
+VALUES (8, 'Oscorp', '456 Park Ave');
+INSERT INTO COMPANIES (C_ID, C_Name, C_Address)
+VALUES (9, 'Daily Bugle', '789 Daily Bugle Building');
+INSERT INTO COMPANIES (C_ID, C_Name, C_Address)
+VALUES (10, 'LexCorp', '555 Lex Luthor Plaza');
+INSERT INTO COMPANIES (C_ID, C_Name, C_Address)
+VALUES (11, 'S.H.I.E.L.D.', '890 8th Ave');
+INSERT INTO COMPANIES (C_ID, C_Name, C_Address)
+VALUES (12, 'Hydra', '123 Hydra Base');
+INSERT INTO COMPANIES (C_ID, C_Name, C_Address)
+VALUES (13, 'Aperture Science', '456 Aperture Way');
+INSERT INTO COMPANIES (C_ID, C_Name, C_Address)
+VALUES (14, 'Black Mesa', '789 Black Mesa Complex');
+INSERT INTO COMPANIES (C_ID, C_Name, C_Address)
+VALUES (15, 'Abstergo Industries', '555 Abstergo Way');
+INSERT INTO COMPANIES (C_ID, C_Name, C_Address)
+VALUES (16, 'Umbra Witches', '321 Umbra Witches Tower');
+INSERT INTO COMPANIES (C_ID, C_Name, C_Address)
+VALUES (17, 'Spectre', '777 Spectre Headquarters');
+INSERT INTO COMPANIES (C_ID, C_Name, C_Address)
+VALUES (18, 'Silent Hill Inc', '123 Silent Hill');
+INSERT INTO COMPANIES (C_ID, C_Name, C_Address)
+VALUES (19, 'Wayfinder Foundation', '456 Wayfinder Island');
+INSERT INTO COMPANIES (C_ID, C_Name, C_Address)
+VALUES (20, 'Rapture Enterprises', '789 Rapture City');
+
+
+Code Insert Hospitals Table
+INSERT INTO HOSPITALS (H_ID, H_Name, H_Address, H_Phone)
+VALUES (1, 'Mount Sinai Hospital', 'One Gustave L. Levy Place, New York, NY 10029', '(212) 241-6500');
+INSERT INTO HOSPITALS (H_ID, H_Name, H_Address, H_Phone)
+VALUES (2, 'Mayo Clinic', '200 First St SW, Rochester, MN 55905', '(507) 284-2511');
+INSERT INTO HOSPITALS (H_ID, H_Name, H_Address, H_Phone)
+VALUES (3, 'Johns Hopkins Hospital', '1800 Orleans St, Baltimore, MD 21287', '(410) 955-5000');
+INSERT INTO HOSPITALS (H_ID, H_Name, H_Address, H_Phone)
+VALUES (4, 'Massachusetts General Hospital', '55 Fruit St, Boston, MA 02114', '(617) 726-2000');
+INSERT INTO HOSPITALS (H_ID, H_Name, H_Address, H_Phone)
+VALUES (5, 'Cleveland Clinic', '9500 Euclid Ave, Cleveland, OH 44195', '(216) 444-2200');
+INSERT INTO HOSPITALS (H_ID, H_Name, H_Address, H_Phone)
+VALUES (6, 'University of Michigan Hospitals-Michigan Medicine', '1500 E Medical Center Dr, Ann Arbor, MI 48109', 
+'(734) 936-4000');
+INSERT INTO HOSPITALS (H_ID, H_Name, H_Address, H_Phone)
+VALUES (7, 'New York-Presbyterian Hospital-Columbia and Cornell', '525 E 68th St, New York, NY 10065', '(212) 746-
+5454');
+INSERT INTO HOSPITALS (H_ID, H_Name, H_Address, H_Phone)
+VALUES (8, 'UCSF Medical Center', '505 Parnassus Ave, San Francisco, CA 94143', '(415) 476-1000');
+INSERT INTO HOSPITALS (H_ID, H_Name, H_Address, H_Phone)
+VALUES (9, 'Brigham and Women''s Hospital', '75 Francis St, Boston, MA 02115', '(617) 732-5500');
+INSERT INTO HOSPITALS (H_ID, H_Name, H_Address, H_Phone)
+VALUES (10, 'Stanford Health Care-Stanford Hospital', '300 Pasteur Dr, Stanford, CA 94305', '(650) 723-4000');
+INSERT INTO HOSPITALS (H_ID, H_Name, H_Address, H_Phone)
+VALUES (11, 'Duke University Hospital', '2301 Erwin Rd, Durham, NC 27705', '(919) 684-8111');
+INSERT INTO HOSPITALS (H_ID, H_Name, H_Address, H_Phone)
+VALUES (12, 'UCLA Medical Center', '757 Westwood Plaza, Los Angeles, CA 90095', '(310) 825-9111');
+INSERT INTO HOSPITALS (H_ID, H_Name, H_Address, H_Phone)
+VALUES (13, 'Houston Methodist Hospital', '6565 Fannin St, Houston, TX 77030', '(713) 790-3311');
+
+
+Code Insert Clinics Table
+INSERT INTO CLINICS (C_ID, C_Name, Dr_Name, C_SPECIALIZATION, C_Phone, H_ID)
+VALUES (1, 'Family Health Clinic', 'Dr. Smith', 'Family Medicine', '555-1234', 1);
+INSERT INTO CLINICS (C_ID, C_Name, Dr_Name, C_SPECIALIZATION, C_Phone, H_ID)
+VALUES (2, 'Cardiovascular Clinic', 'Dr. Johnson', 'Cardiology', '555-5678', 2);
+INSERT INTO CLINICS (C_ID, C_Name, Dr_Name, C_SPECIALIZATION, C_Phone, H_ID)
+VALUES (3, 'Pediatric Clinic', 'Dr. Davis', 'Pediatrics', '555-2345', 3);
+INSERT INTO CLINICS (C_ID, C_Name, Dr_Name, C_SPECIALIZATION, C_Phone, H_ID)
+VALUES (4, 'Dental Clinic', 'Dr. Anderson', 'Dentistry', '555-6789', 4);
+INSERT INTO CLINICS (C_ID, C_Name, Dr_Name, C_SPECIALIZATION, C_Phone, H_ID)
+VALUES (5, 'OB/GYN Clinic', 'Dr. Wilson', 'Obstetrics and Gynecology', '555-3456', 5);
+INSERT INTO CLINICS (C_ID, C_Name, Dr_Name, C_SPECIALIZATION, C_Phone, H_ID)
+VALUES (6, 'Orthopedic Clinic', 'Dr. Miller', 'Orthopedics', '555-7890', 6);
+INSERT INTO CLINICS (C_ID, C_Name, Dr_Name, C_SPECIALIZATION, C_Phone, H_ID)
+VALUES (7, 'Urology Clinic', 'Dr. Moore', 'Urology', '555-4567', 7);
+INSERT INTO CLINICS (C_ID, C_Name, Dr_Name, C_SPECIALIZATION, C_Phone, H_ID)
+VALUES (8, 'Psychiatry Clinic', 'Dr. Taylor', 'Psychiatry', '555-8901', 8);
+INSERT INTO CLINICS (C_ID, C_Name, Dr_Name, C_SPECIALIZATION, C_Phone, H_ID)
+VALUES (9, 'Chiropractic Clinic', 'Dr. Jackson', 'Chiropractic', '555-5678', 9);
+INSERT INTO CLINICS (C_ID, C_Name, Dr_Name, C_SPECIALIZATION, C_Phone, H_ID)
+VALUES (10, 'Allergy and Asthma Clinic', 'Dr. Adams', 'Allergy and Immunology', '555-2345', 10);
+INSERT INTO CLINICS (C_ID, C_Name, Dr_Name, C_SPECIALIZATION, C_Phone, H_ID)
+VALUES (11, 'Neurology Clinic', 'Dr. Martin', 'Neurology', '555-6789', 11);
+INSERT INTO CLINICS (C_ID, C_Name, Dr_Name, C_SPECIALIZATION, C_Phone, H_ID)
+VALUES (12, 'Ophthalmology Clinic', 'Dr. Lee', 'Ophthalmology', '555-3456', 12);
+INSERT INTO CLINICS (C_ID, C_Name, Dr_Name, C_SPECIALIZATION, C_Phone, H_ID)
+VALUES (13, 'Dermatology Clinic', 'Dr. Perez', 'Dermatology', '555-7890', 13);
+
+
+Code Insert Medical_History Table
+INSERT INTO MEDICAL_HISTORY (M_ID, Emp_ID, Comp_ID, Clinic_ID, M_Date)
+VALUES (1, 1, 2, 4, TO_DATE('2022-01-15', 'YYYY-MM-DD'));
+INSERT INTO MEDICAL_HISTORY (M_ID, Emp_ID, Comp_ID, Clinic_ID, M_Date)
+VALUES (2, 2, 3, 5, TO_DATE('2022-02-23', 'YYYY-MM-DD'));
+INSERT INTO MEDICAL_HISTORY (M_ID, Emp_ID, Comp_ID, Clinic_ID, M_Date)
+VALUES (3, 3, 4, 6, TO_DATE('2022-03-10', 'YYYY-MM-DD'));
+INSERT INTO MEDICAL_HISTORY (M_ID, Emp_ID, Comp_ID, Clinic_ID, M_Date)
+VALUES (4, 4, 5, 7, TO_DATE('2022-04-18', 'YYYY-MM-DD'));
+INSERT INTO MEDICAL_HISTORY (M_ID, Emp_ID, Comp_ID, Clinic_ID, M_Date)
+VALUES (5, 5, 6, 8, TO_DATE('2022-05-07', 'YYYY-MM-DD'));
+INSERT INTO MEDICAL_HISTORY (M_ID, Emp_ID, Comp_ID, Clinic_ID, M_Date)
+VALUES (6, 6, 7, 9, TO_DATE('2022-06-21', 'YYYY-MM-DD'));
+INSERT INTO MEDICAL_HISTORY (M_ID, Emp_ID, Comp_ID, Clinic_ID, M_Date)
+VALUES (7, 7, 8, 10, TO_DATE('2022-07-11', 'YYYY-MM-DD'));
+INSERT INTO MEDICAL_HISTORY (M_ID, Emp_ID, Comp_ID, Clinic_ID, M_Date)
+VALUES (8, 8, 9, 11, TO_DATE('2022-08-29', 'YYYY-MM-DD'));
+INSERT INTO MEDICAL_HISTORY (M_ID, Emp_ID, Comp_ID, Clinic_ID, M_Date)
+VALUES (9, 9, 10, 12, TO_DATE('2022-09-06', 'YYYY-MM-DD'));
+INSERT INTO MEDICAL_HISTORY (M_ID, Emp_ID, Comp_ID, Clinic_ID, M_Date)
+VALUES (10, 10, 1, 13, TO_DATE('2022-10-19', 'YYYY-MM-DD'));
+Procedure to get Max_ID
+create or replace PROCEDURE MaxId(maxid out number )
+as 
+BEGIN
+SELECT max (M_ID)
+into maxid
+from MEDICAL_HISTORY;
+end;
+Procedure to get clinic by hospital ID
+create or replace
+PROCEDURE getClinicsnameFromhid
+(hid in number , CID out sys_refcursor)
+as
+begin
+open CID for
+select C_NAME
+from CLINICS
+where H_ID = hid;
+end;
